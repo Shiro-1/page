@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>山东省智慧畜牧业务支撑服务系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="%E5%B1%B1%E4%B8%9C%E7%9C%81%E6%99%BA%E6%85%A7%E7%95%9C%E7%89%A7%E4%B8%9A%E5%8A%A1%E6%94%AF%E6%92%91%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F_files/mui.min.css">
+    <style>
+        html,
+        body,
+        .mui-content {
+            background-color: #efeff4;
+        }
+
+        .mui-input-group .mui-input-row {
+            height: auto;
+            line-height: 28px;
+        }
+
+        .kehu_form .detail_block {
+            padding: 11px 15px;
+            margin-bottom: 10px;
+        }
+
+        .kehu_form.mui-input-group {
+            background: none;
+        }
+
+        .kehu_form.mui-input-group .block_title {
+            color: #323232;
+            font-size: 16px;
+            position: relative;
+            line-height: 30px;
+            padding-top: 4px;
+        }
+
+        .kehu_form.mui-input-group .block_title:after {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            background: #ccc;
+            content: '';
+        }
+
+        .kehu_form.mui-input-group .mui-input-row:after {
+            height: 0;
+        }
+
+        .kehu_form.mui-input-group .mui-input-row label {
+            width: 120px;
+            padding: 0;
+            height: 24px;
+            line-height: 24px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .kehu_form.mui-input-group .mui-input-row input {
+            width: 100%;
+            padding: 3px;
+            line-height: 24px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .kehu_form.mui-input-group .mui-input-row h5 {
+            display: block;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .kehu_form .mui-navigate-right:after {
+            content: '\e581';
+        }
+
+        .kehu_form .mui-navigate-right.active:after {
+            content: '\e580';
+        }
+
+        .info {
+            color: #555;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+
+        i {
+            font-style: normal;
+        }
+
+        .more_content {
+            width: calc(100% - 120px);
+            height: auto;
+        }
+
+        .more_content_father {
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .mui-input-group:before,
+        .mui-input-group:after {
+            height: 0;
+        }
+
+        #verifyCode {
+            padding: 30px 15px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mui-content">
+        <div class="header" style="height: auto; width: 100%; background: linear-gradient(to bottom, #e6f5ff 0%, #EFEFF4 100%); padding: 20px 15px 0; text-align: center;">
+            <img src="%E5%B1%B1%E4%B8%9C%E7%9C%81%E6%99%BA%E6%85%A7%E7%95%9C%E7%89%A7%E4%B8%9A%E5%8A%A1%E6%94%AF%E6%92%91%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F_files/index.png" alt="" style="width: 90px; height: 90px; margin: 0 auto 15px;">
+            <p style="font-size: 24px; color: #676a6c; text-align: center; font-weight: bold; padding-bottom: 18px;  border-bottom: 1px #ccc dashed; margin-bottom: 5px;">
+                山东省智慧畜牧业务支撑服务系统</p>
+        </div>
+        <div class="mui-scroll">
+            <div id="kehu_form" class="kehu_form mui-input-group">
+                <div id="sbinfo_content" style="">
+                    <div class="detail_block block1" style="margin-bottom: 0;padding-bottom: 0;">
+                        <div class="mui-input-row">
+                            <label>检疫证号：</label>
+                            <h5><span id="cert_no">3739212887</span>（<span id="hege_type">产品A</span>）</h5>
+                        </div>
+                        <div class="mui-input-row">
+                            <label><i style="letter-spacing: 28px; ">货</i>主：</label>
+                            <h5 id="huozhu">山***司</h5>
+                        </div>
+                        <div class="mui-input-row">
+                            <label><i style="letter-spacing: 28px; ">种</i>类：</label>
+                            <h5 id="anm_name" style="font-weight: bold;">鸡-分割肉</h5>
+                        </div>
+                        <div class="mui-input-row">
+                            <label><i style="letter-spacing: 28px; ">数</i>量：</label>
+                            <h5 id="cz_cnt">3730公斤</h5>
+                        </div>
+                        <div class="mui-input-row">
+                            <label><i style="letter-spacing: 28px; ">用</i>途：</label>
+                            <h5 id="yongtu"></h5>
+                        </div>
+                        <div class="mui-input-row more_content_father">
+                            <label>启运地点：</label>
+                            <h5 id="qiyun" class="more_content">山东尽美食品有限公司 山东省潍坊市诸城市东坡北街5号</h5>
+                        </div>
+                        <div class="mui-input-row more_content_father">
+                            <label>到达地点：</label>
+                            <h5 id="daoda" class="more_content">浙江省金华市婺城区新辰冻品市场   诸城副食品经营部</h5>
+                        </div>
+                        <div class="mui-input-row more_content_father">
+                            <label><i style="letter-spacing: 7px; ">车牌</i>号：</label>
+                            <h5 id="chepai" class="more_content">鲁Q062KK鲁QG1Y0挂</h5>
+                        </div>
+                        <div class="mui-input-row more_content_father">
+                            <label>牲畜耳标：</label>
+                            <h5 id="ernos" class="more_content"></h5>
+                        </div>
+                        <div class="mui-input-row more_content_father">
+                            <label><i style="letter-spacing: 28px; ">备</i>注：</label>
+                            <h5 id="remark" class="more_content">鸡翅尖鸡爪</h5>
+                        </div>
+                        <div class="mui-input-row more_content_father">
+                            <label>签发单位：</label>
+                            <h5 id="unit_name" class="more_content">诸城市畜牧局</h5>
+                        </div>
+                        <div class="mui-input-row more_content_father">
+                            <label>官方兽医：</label>
+                            <h5 id="check_user" class="more_content">李*凤</h5>
+                        </div>
+                        <div class="mui-input-row more_content_father">
+                            <label>签发时间：</label>
+                            <h5 id="cz_time" class="more_content">2022-06-16 09:09</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail_block block1" id="verifyCode" style="display: none;">
+                    <div class="mui-input-row" style="height: auto;">
+                        <label style="color: #666; width: 100%;" for="last4code"><span>请输入货主手机号后4位：</span></label>
+                    </div>
+                    <div class="mui-input-row">
+                        <input id="last4code" name="" type="number" class="mui-input-clear" placeholder="4位数字" onkeyup="this.value = this.value.replace(/[^\d.]/g, '').substr(0,4)" data-input-clear="1"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+                    </div>
+                    <div style="margin-top: 10px; text-align: center">
+                        <button class="mui-btn mui-btn-primary" id="confirmCode">确定</button>
+                    </div>
+                </div>
+                <div style="margin:30px 0;">
+                    <span class="info">至为科技 技术支持</span>
+                    <span class="info">服务电话：<span style="color: #407AFF;" id="supporttel">4000270015</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="%E5%B1%B1%E4%B8%9C%E7%9C%81%E6%99%BA%E6%85%A7%E7%95%9C%E7%89%A7%E4%B8%9A%E5%8A%A1%E6%94%AF%E6%92%91%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F_files/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="%E5%B1%B1%E4%B8%9C%E7%9C%81%E6%99%BA%E6%85%A7%E7%95%9C%E7%89%A7%E4%B8%9A%E5%8A%A1%E6%94%AF%E6%92%91%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F_files/mui.min.js"></script>
+    <script>
+        mui.init();
+
+        window.onload = function () {
+            parseNo(GetRequest(location.href))
+        }
+
+        function GetRequest(url) {
+            console.log(url)
+            var url_arr = url.split('?')
+            if (url_arr.length == 2) return url_arr[1]
+            return '';
+        }
+    </script>
+
+
+</body></html>
